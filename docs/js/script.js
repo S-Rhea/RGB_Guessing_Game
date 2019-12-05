@@ -31,9 +31,12 @@ function setUpButtons(){
 			this.classList.add("selected");
 			if(this.textContent === "Easy"){
 				numSquares = 3;
-			}else{
+			}else if (this.textContent === "Medium"){
 				numSquares = 6;
+			}else{
+				numSquares = 8;
 			}
+			
 			reset();
 			});	
 	}
@@ -72,7 +75,18 @@ function reset(){
 	heading.style.backgroundColor = "steelblue";
 	resetButton.textContent = "New Colors";
 	messageDisplay.textContent = "";
+	
 	for (var i = 0; i <squares.length; i++){
+		if(numSquares === 8){
+			squares[i].style.width = "22.5%";
+			squares[i].style.paddingBottom = "22.5%";
+			squares[i].style.margin = "1.25%";
+		}else{
+			squares[i].style.width = "30%";
+			squares[i].style.paddingBottom = "30%";
+			squares[i].style.margin = "1.66%";
+			}
+			
 		if(colors[i]){
 			squares[i].style.backgroundColor = colors[i];
 			squares[i].style.display = "block";
